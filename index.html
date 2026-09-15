@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>星天气 · 今日星座翻卡</title>
+  <meta name="description" content="翻开今日星座卡，收下幸运色、心情寄语，以及结合气温和降雨的今日穿搭推荐。">
+  <meta name="theme-color" content="#101c36">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23101c36'/%3E%3Ctext x='20' y='30' text-anchor='middle' font-size='32' fill='%23dfff9b'%3E✦%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css"><link rel="stylesheet" href="./layout.css"><script src="./app.js" defer></script>
+</head>
+<body>
+<div class="shell">
+  <header><a class="brand" href="./"><span class="brand-symbol">✳</span> 星天气 <span class="brand-en">STAR / MOOD</span></a><span class="edition">给日常一点宇宙感</span></header>
+  <main>
+    <div class="heading"><div><p class="eyebrow">YOUR DAILY LITTLE RITUAL</p><h1>今天，会是什么颜色？<span>✦</span></h1><p class="intro">选一个星座，翻开属于今天的小小灵感。</p></div><div class="date"><span id="day">TODAY</span><strong id="date">今日</strong><span id="weekday"></span></div></div>
+    <section class="weather" aria-label="今日天气"><div class="weather-location"><span class="location-symbol">⌖</span><div><label for="city">今天，你在哪里？</label><select id="city"><option value="">选择城市</option><option value="shanghai">上海</option><option value="beijing">北京</option><option value="guangzhou">广州</option><option value="shenzhen">深圳</option><option value="hangzhou">杭州</option><option value="chengdu">成都</option><option value="wuhan">武汉</option><option value="nanjing">南京</option><option value="chongqing">重庆</option><option value="xian">西安</option><option value="suzhou">苏州</option><option value="tianjin">天津</option><option value="changsha">长沙</option><option value="xiamen">厦门</option><option value="qingdao">青岛</option><option value="kunming">昆明</option><option value="hongkong">香港</option><option value="taipei">台北</option></select></div><button id="locate" class="locate" type="button">使用定位 ↗</button></div><div class="weather-reading" id="weatherReading" role="status">选好城市，把今天的天气放进卡片。</div><button id="retry" class="text-button" hidden>重新获取</button></section>
+    <div class="workspace">
+      <section class="zodiac-panel" aria-labelledby="chooseTitle"><div class="section-heading"><h2 id="chooseTitle"><span class="step">01</span> 选择你的星座</h2><span class="small-note">跟随你的太阳星座</span></div><div class="zodiac-grid" id="zodiacs"></div><p class="selection-note">✧ 每天一张寄语，给心情留一点惊喜。</p></section>
+      <section class="card-panel" aria-labelledby="cardTitle"><div class="section-heading"><h2 id="cardTitle"><span class="step">02</span> 收下今日灵感</h2><span class="small-note" id="cardState">等待翻开</span></div>
+        <button class="flip-card" id="flip" type="button" aria-label="翻开今日星座卡片" aria-pressed="false"><span class="card-inner"><span class="card-face card-front"><span class="card-top"><span>DAILY COSMIC NOTE</span><span>✧</span></span><span class="seal"><span class="seal-orbit"></span><span class="seal-glyph" id="frontGlyph">♈</span><span class="seal-star">✦</span></span><span class="front-name" id="frontName">白羊座</span><span class="front-en" id="frontEnglish">ARIES</span><span class="front-copy">你的今日色彩，正在等你</span><span class="flip-cta">轻触翻开 <span>↗</span></span><span class="card-bottom">一份寄语 · 一点幸运 · 一个好心情</span></span>
+        <span class="card-face card-back" aria-hidden="true"><span class="card-top"><span id="backTitle">白羊座 · 今日灵感</span><span id="backGlyph">♈</span></span><span class="color-section"><span class="eyebrow">TODAY’S LUCKY COLOR</span><span class="color-name" id="colorName"></span><span class="color-value" id="colorHex"></span></span><span class="message-label">给今天的你</span><span class="message" id="message"></span><span class="weather-note"><span class="message-label">天气 × 心情</span><span id="weatherAdvice">选一个城市，让天气也给你一点灵感。</span></span><span class="back-bottom"><span>把这抹颜色带进今天</span><span>轻触收起 ↶</span></span></span></span></button>
+      </section>
+    </div>
+    <section class="outfit-panel" id="outfitPanel" aria-labelledby="outfitTitle" hidden>
+      <div class="section-heading"><h2 id="outfitTitle"><span class="step">03</span> 今天穿什么</h2><span class="small-note">把幸运色穿在身上</span></div>
+      <div class="outfit-content" aria-live="polite" aria-atomic="true">
+        <p class="outfit-summary" id="outfitSummary">选择城市，获取今天的穿搭建议。</p>
+        <div class="outfit-grid" id="outfitGrid" hidden></div>
+        <p class="outfit-color" id="outfitColor" hidden></p>
+      </div>
+    </section>
+  </main>
+  <footer><span>让星座带来灵感，让生活由你定义。</span><span>星座内容仅供娱乐 <span class="footer-sep">/</span> 天气来自 <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo ↗</a></span></footer>
+</div>
+</body></html>

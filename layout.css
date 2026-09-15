@@ -1,0 +1,122 @@
+/* Three landscape frames, read from top to bottom. */
+.shell { max-width: 1060px; padding: 0 40px; }
+header { height: 84px; }
+.heading { margin: 32px 0 25px; }
+.weather { border-radius: 4px; }
+.workspace { display: flex; flex-direction: column; gap: 30px; margin-top: 32px; }
+.zodiac-panel, .card-panel, .outfit-panel {
+  width: 100%;
+  border-top: 8px solid var(--ink);
+  padding-top: 18px;
+}
+.section-heading { margin-bottom: 17px; }
+.small-note { display: block; }
+.zodiac-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; border: 1px solid var(--line); }
+.zodiac {
+  border: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  min-height: 97px;
+  padding: 12px 6px;
+}
+.zodiac:nth-child(6n) { border-right: 0; }
+.zodiac:nth-child(n+7) { border-bottom: 0; }
+.zodiac[aria-pressed=true] { border: 0; box-shadow: inset 0 0 0 2px #8799ba; }
+.zodiac:hover { transform: none; background: #edf1f8; }
+.zodiac-dates { white-space: nowrap; }
+.selection-note { margin: 13px 0 0; }
+.flip-card { min-height: 320px; max-width: none; border-radius: 3px; }
+.card-face { min-height: 320px; border-radius: 3px; box-shadow: none; padding: 23px 32px; }
+.card-front:before { inset: 10px; border-radius: 0; }
+.card-front {
+  display: grid;
+  grid-template-columns: 42% minmax(0, 1fr);
+  grid-template-rows: auto auto auto auto auto auto;
+  column-gap: 34px;
+  align-items: center;
+  justify-items: start;
+}
+.card-top { grid-column: 1 / -1; grid-row: 1; }
+.seal { grid-column: 1; grid-row: 2 / 6; width: 100%; height: 203px; margin: 0; border-right: 1px solid #8294b53b; }
+.seal-orbit { width: 155px; height: 155px; }
+.seal-glyph { font-size: 100px; }
+.seal-star { right: calc(50% - 88px); top: 18px; }
+.front-name { grid-column: 2; grid-row: 2; margin: 16px 0 0; }
+.front-en { grid-column: 2; grid-row: 3; margin: 3px 0 0; }
+.front-copy { grid-column: 2; grid-row: 4; margin: 18px 0 0; }
+.flip-cta { grid-column: 2; grid-row: 5; margin-top: 14px; border-radius: 3px; }
+.card-bottom { grid-column: 1 / -1; grid-row: 6; width: 100%; text-align: center; padding-top: 15px; margin-top: 0; }
+.card-back {
+  display: grid;
+  grid-template-columns: 34% minmax(0, 1fr);
+  grid-template-rows: auto auto auto 1fr auto;
+  column-gap: 30px;
+  align-items: start;
+}
+.color-section { grid-column: 1; grid-row: 2 / 5; height: 100%; border-right: 1px solid #19283d25; padding: 30px 22px 24px 0; justify-content: center; }
+.color-name { font-size: 42px; }
+.card-back > .message-label { grid-column: 2; grid-row: 2; margin-top: 25px; }
+.message { grid-column: 2; grid-row: 3; font-size: 21px; line-height: 1.75; }
+.weather-note { grid-column: 2; grid-row: 4; padding-top: 13px; margin-top: 14px; }
+.back-bottom { grid-column: 1 / -1; grid-row: 5; width: 100%; padding-top: 20px; }
+.outfit-panel { margin-top: 30px; }
+.outfit-content { border-radius: 3px; min-height: 230px; padding: 24px 28px; }
+.outfit-grid { gap: 0; margin: 22px 0; }
+.outfit-item { padding: 4px 20px; border-left: 1px solid var(--line); }
+.outfit-item:first-child { border-left: 0; padding-left: 0; }
+.outfit-item:last-child { padding-right: 0; }
+.outfit-color { margin-top: 22px; }
+footer { margin-top: 32px; }
+@media (max-width: 800px) {
+  .shell { padding: 0 24px; }
+  .zodiac-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .zodiac:nth-child(n) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .zodiac:nth-child(4n) { border-right: 0; }
+  .zodiac:nth-child(n+9) { border-bottom: 0; }
+  .card-face { padding: 23px; }
+  .card-front, .card-back { column-gap: 23px; }
+  .color-name { font-size: 34px; }
+  .message { font-size: 19px; }
+  .color-section .eyebrow { line-height: 1.7; }
+  .outfit-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 0; }
+  .outfit-item:nth-child(odd) { border-left: 0; padding-left: 0; }
+}
+@media (max-width: 560px) {
+  .shell { padding: 0 18px; }
+  header { height: 74px; }
+  .heading { margin-top: 25px; }
+  .workspace { gap: 25px; margin-top: 25px; }
+  .zodiac-panel, .card-panel, .outfit-panel { border-top-width: 6px; padding-top: 15px; }
+  .small-note { font-size: 12px; }
+  .zodiac-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .zodiac:nth-child(n) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .zodiac:nth-child(3n) { border-right: 0; }
+  .zodiac:nth-child(n+10) { border-bottom: 0; }
+  .zodiac[aria-pressed=true] { box-shadow: inset 0 0 0 2px #8799ba; }
+  .zodiac { min-height: 89px; }
+  .card-face { min-height: 0; padding: 23px; }
+  .flip-card { min-height: 0; }
+  .card-front { grid-template-columns: 36% minmax(0, 1fr); column-gap: 19px; }
+  .seal { height: 206px; border-right: 0; }
+  .seal-orbit { width: 79px; height: 79px; outline-offset: 7px; }
+  .seal-glyph { font-size: 63px; }
+  .seal-star { right: calc(50% - 46px); top: 61px; font-size: 17px; }
+  .front-name { font-size: 24px; letter-spacing: 3px; margin-top: 17px; }
+  .front-copy { line-height: 1.8; font-size: 14px; margin-top: 12px; }
+  .flip-cta { min-width: 0; width: 100%; max-width: 175px; padding: 10px 12px; font-size: 14px; letter-spacing: 1px; }
+  .card-top { font-size: 12px; letter-spacing: 1px; }
+  .card-bottom { font-size: 12px; letter-spacing: 0; padding-top: 14px; line-height: 1.8; }
+  .card-back { display: flex; align-items: stretch; }
+  .color-section { height: auto; border-right: 0; padding: 18px 0; }
+  .color-name { font-size: 32px; }
+  .color-section .eyebrow { margin-bottom: 5px; }
+  .card-back > .message-label { margin-top: 0; }
+  .message { font-size: 19px; }
+  .weather-note { margin-top: 16px; }
+  .back-bottom { font-size: 12px; padding-top: 18px; }
+  .outfit-panel { margin-top: 25px; }
+  .outfit-content { padding: 20px; }
+  .outfit-item { padding: 0 0 0 16px; }
+  footer { margin-top: 25px; }
+}
